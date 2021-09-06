@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Layout } from '@/components/layout'
 const FirstPost: React.FC = () => {
     return (
-        <Layout>
+        <Layout home={false}>
             <Head>
                 <title>First Post</title>
             </Head>

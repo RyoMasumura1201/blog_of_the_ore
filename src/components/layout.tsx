@@ -2,11 +2,16 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../../styles/util.module.css'
 import Link from 'next/link'
+import { ReactChild } from 'react'
 
 const name = 'ryo_of_the_ryo'
 export const siteTitle = 'Next.js Sample Website'
 
-export const Layout =({ children, home }) =>{
+type Props = {
+    home: boolean
+}
+
+export const Layout: React.FC<Props> =({ children, home }) =>{
   return (
     <div className={styles.container}>
       <Head>
