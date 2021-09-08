@@ -1,7 +1,9 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import React from 'react';
+import { unified } from 'unified';
+import html from 'remark-html';
+import remarkParse from 'remark-parse'
 
 type postDataType = {
     id: string,
@@ -48,14 +50,22 @@ export const getAllPostIds= () => {
     })
 }
 
-export const getPostData = (id: string) => {
+export const getPostData = async(id: string) => {
   const fullPath: string = path.join(postsDirectory, `${id}.md`);
   const fileContents: string = fs.readFileSync(fullPath, `utf8`);
 
   const matterResult: matter.GrayMatterFile<string> = matter(fileContents);
 
+  const processedContent = await unified()
+    .use(remarkParse)
+    .use(html)
+    .process(matterResult.content)
+  
+  const contentHtml = processedContent.toString();
+
   return {
     id,
+    contentHtml,
     ...matterResult.data as {date: string; title: string}
   }
 
