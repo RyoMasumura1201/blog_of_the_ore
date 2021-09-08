@@ -35,3 +35,28 @@ export const getSortedPostsData = () => {
         }
     })
 }
+
+export const getAllPostIds= () => {
+    const fileNames: string[] = fs.readdirSync(postsDirectory);
+
+    return fileNames.map(fileName => {
+        return {
+            params: {
+                id: fileName.replace(/\.md$/, '')
+            }
+        }
+    })
+}
+
+export const getPostData = (id: string) => {
+  const fullPath: string = path.join(postsDirectory, `${id}.md`);
+  const fileContents: string = fs.readFileSync(fullPath, `utf8`);
+
+  const matterResult: matter.GrayMatterFile<string> = matter(fileContents);
+
+  return {
+    id,
+    ...matterResult.data as {date: string; title: string}
+  }
+
+}
