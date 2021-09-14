@@ -48,7 +48,7 @@ export default function Home({
         <Wrap justify="center" spacing="30px">
           {allPostsData.map(({id, date, title}) => (
             <WrapItem>
-              <Box w = "360px" h="360px" bg="gray.100" borderRadius="20px">
+              <Box w = "360px" h="360px" bg="gray.100" borderRadius="20px" onClick={()=> router.push(`/posts/${id}`)}>
                 <p>{title}</p>
                 <Date dateString={date} />
               </Box>
