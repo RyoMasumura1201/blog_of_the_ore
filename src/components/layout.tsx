@@ -2,18 +2,20 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../../styles/util.module.css'
 import Link from 'next/link'
-import { ReactChild } from 'react'
+import { VFC } from 'react'
+import { Image, HStack, Text } from "@chakra-ui/react"
 
 const name = 'ryo_of_the_ryo'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'blog_of_the_ryo'
 
 type Props = {
     home: boolean
+    children: React.ReactNode
 }
 
-export const Layout: React.FC<Props> =({ children, home }) =>{
+export const Layout: VFC<Props> =({ children, home }) =>{
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -31,31 +33,33 @@ export const Layout: React.FC<Props> =({ children, home }) =>{
       </Head>
       <header className={styles.header}>
         {home ? (
-          <>
-            <img
+          <HStack spacing="8" marginBottom="10" p="4">
+            <Image
               src="/images/profile.jpeg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
+              borderRadius="full"
+              boxSize="100px"
             />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
+            <Text fontSize="xxx-large" fontWeight="bold">{name}</Text>
+          </HStack>
         ) : (
-          <>
+          <HStack spacing="8" marginBottom="10" p="4">
             <Link href="/">
               <a>
-                <img
-                  src="/images/profile.jpeg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={name}
+                <Image
+                src="/images/profile.jpeg"
+                alt={name}
+                borderRadius="full"
+                boxSize="100px"
                 />
               </a>
             </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
+            <Link href="/">
+              <a>
+                <Text fontSize="xxx-large" fontWeight="bold">{name}</Text>
+              </a>
+            </Link>
+          </HStack>
         )}
       </header>
       <main>{children}</main>

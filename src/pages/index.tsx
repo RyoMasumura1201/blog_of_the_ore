@@ -5,6 +5,9 @@ import utilStyles from 'styles/util.module.css'
 import { getSortedPostsData } from 'lib/posts'
 import { GetStaticProps } from 'next'
 import { Date } from '../components/date'
+import { Box, Center, Wrap, WrapItem } from '@chakra-ui/layout'
+import { Image, Stack, Text } from "@chakra-ui/react"
+import router from 'next/router'
 
 export const getStaticProps: GetStaticProps = async()=> {
   const allPostsData = getSortedPostsData()
@@ -29,28 +32,19 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
-              <small className={utilStyles.lightText}>
+        <Wrap justify="center" spacing="30px">
+          {allPostsData.map(({id, date, title}) => (
+            <WrapItem key={id}>
+              <Box w = "360px" h="360px" bg="gray.100" borderRadius="20px" p="4" onClick={()=> router.push(`/posts/${id}`)} _hover={{opacity: 0.5, cursor: "pointer"}}>
+                <Stack textAlign="center">
+                <Image src="/images/profile.jpeg" boxSize="240px" alt="thumbnail" m="auto" borderRadius="full"/>
+                <Text fontSize="lg" fontWeight="bold">{title}</Text>
                 <Date dateString={date} />
-              </small>
-            </li>
+                </Stack>
+              </Box>
+            </WrapItem>
           ))}
-        </ul>
-      </section>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-      </section>
+        </Wrap>
     </Layout>
   )
 }
