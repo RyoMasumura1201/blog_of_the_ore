@@ -15,7 +15,7 @@ export default function Post({
     contentHtml: string
   }
 }) {
-  return <Layout home={false}>
+  return <Layout>
     <Head>
       <title>{postData.title}</title>
     </Head>

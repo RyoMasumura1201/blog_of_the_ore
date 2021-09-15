@@ -5,11 +5,11 @@ import Link from 'next/link'
 import { VFC } from 'react'
 import { Image, HStack, Text } from "@chakra-ui/react"
 
-const name = 'ryo_of_the_ryo'
+const name = 'blog_of_the_ryo'
 export const siteTitle = 'blog_of_the_ryo'
 
 type Props = {
-    home: boolean
+    home?: boolean
     children: React.ReactNode
 }
 
