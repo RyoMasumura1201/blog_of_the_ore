@@ -2,17 +2,17 @@ import Head from 'next/head'
 import styles from './layout.module.css'
 import utilStyles from '../../styles/util.module.css'
 import Link from 'next/link'
-import { ReactChild, VFC } from 'react'
+import { VFC } from 'react'
 
 const name = 'ryo_of_the_ryo'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'blog_of_the_ryo'
 
 type Props = {
     home: boolean
     children: React.ReactNode
 }
 
-export const Layout: React.VFC<Props> =({ children, home }) =>{
+export const Layout: VFC<Props> =({ children, home }) =>{
   return (
     <div>
       <Head>

@@ -6,7 +6,8 @@ import { getSortedPostsData } from 'lib/posts'
 import { GetStaticProps } from 'next'
 import { Date } from '../components/date'
 import { Box, Center, Wrap, WrapItem } from '@chakra-ui/layout'
-import router, { useRouter} from 'next/router'
+import { Image, Stack, Text } from "@chakra-ui/react"
+import router from 'next/router'
 
 export const getStaticProps: GetStaticProps = async()=> {
   const allPostsData = getSortedPostsData()
@@ -34,9 +35,12 @@ export default function Home({
         <Wrap justify="center" spacing="30px">
           {allPostsData.map(({id, date, title}) => (
             <WrapItem>
-              <Box w = "360px" h="360px" bg="gray.100" borderRadius="20px" onClick={()=> router.push(`/posts/${id}`)} _hover={{opacity: 0.8, cursor: "pointer"}}>
-                <p>{title}</p>
+              <Box w = "360px" h="360px" bg="gray.100" borderRadius="20px" p="4" onClick={()=> router.push(`/posts/${id}`)} _hover={{opacity: 0.5, cursor: "pointer"}}>
+                <Stack textAlign="center">
+                <Image src="/images/profile.jpeg" boxSize="240px" alt="thumbnail" m="auto" borderRadius="full"/>
+                <Text fontSize="lg" fontWeight="bold">{title}</Text>
                 <Date dateString={date} />
+                </Stack>
               </Box>
             </WrapItem>
           ))}

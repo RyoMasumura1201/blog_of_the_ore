@@ -4,7 +4,7 @@ import { VFC } from "react";
 type Props = {
     dateString: string
 }
-export const Date: React.VFC<Props>=(props)=>{
+export const Date: VFC<Props>=(props)=>{
     const {dateString} = props;
     const date = parseISO(dateString)
     return (
