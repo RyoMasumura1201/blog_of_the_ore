@@ -38,7 +38,7 @@ export const Layout: VFC<Props> =({ children, home }) =>{
               src="/images/profile.jpeg"
               alt={name}
               borderRadius="full"
-              boxSize="100px"
+              boxSize="60px"
             />
             <Text fontSize="xxx-large" fontWeight="bold">{name}</Text>
           </HStack>
@@ -50,7 +50,7 @@ export const Layout: VFC<Props> =({ children, home }) =>{
                 src="/images/profile.jpeg"
                 alt={name}
                 borderRadius="full"
-                boxSize="100px"
+                boxSize="60px"
                 />
               </a>
             </Link>
