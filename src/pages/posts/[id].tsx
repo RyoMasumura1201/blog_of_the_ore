@@ -4,29 +4,38 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import {Date} from '../../components/date'
 import utilStyles from '../../../styles/util.module.css'
+import Prism from 'Prismjs'
+import { useEffect } from 'react';
 
-export default function Post({
-  postData
-}: {
+type Props = {
   postData: {
     id: string
     title: string
     date: string
     contentHtml: string
   }
-}) {
-  return <Layout>
-    <Head>
-      <title>{postData.title}</title>
-    </Head>
-    <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+}
+export default function Post(props: Props) {
+  const {postData} = props;
+  
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [])
+
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      <article>
+        <h1>{postData.title}</h1>
+        <div>
           <Date dateString={postData.date} />
         </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div className="prose" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
-  </Layout>
+    </Layout>
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async() => {
