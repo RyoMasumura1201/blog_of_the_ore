@@ -4,9 +4,9 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
 import {Date} from '../../components/date'
 import utilStyles from '../../../styles/util.module.css'
-import Prism from 'Prismjs'
-import { useEffect } from 'react';
-
+// import Prism from 'Prismjs'
+import { Text } from "@chakra-ui/react"
+import 'github-markdown-css';
 type Props = {
   postData: {
     id: string
@@ -17,10 +17,6 @@ type Props = {
 }
 export default function Post(props: Props) {
   const {postData} = props;
-  
-  useEffect(() => {
-    Prism.highlightAll()
-  }, [])
 
   return (
     <Layout>
@@ -28,11 +24,11 @@ export default function Post(props: Props) {
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1>{postData.title}</h1>
+        <Text fontSize="x-large" fontWeight="bold">{postData.title}</Text>
         <div>
           <Date dateString={postData.date} />
         </div>
-        <div className="prose" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div className ="markdown-body" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
   )
