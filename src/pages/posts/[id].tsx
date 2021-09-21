@@ -20,7 +20,7 @@ type Props = {
 }
 export default function Post(props: Props) {
   const {postData} = props;
-  console.log(postData.content);
+
   return (
     <Layout>
       <Head>
