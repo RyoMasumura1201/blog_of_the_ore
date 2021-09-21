@@ -8,7 +8,8 @@ import gfm from 'remark-gfm';
 import utilStyles from '../../../styles/util.module.css'
 // import Prism from 'Prismjs'
 import { Text } from "@chakra-ui/react"
-import 'github-markdown-css';
+// import 'github-markdown-css';
+import CodeBlock from '../../components/CodeBlock';
 type Props = {
   postData: {
     id: string
@@ -31,7 +32,7 @@ export default function Post(props: Props) {
           <Date dateString={postData.date} />
         </div>
         <div className="markdown-body">
-          <ReactMarkdown remarkPlugins={[gfm]} children={postData.content}/>
+          <ReactMarkdown remarkPlugins={[gfm]} children={postData.content} components={{code: CodeBlock}}/>
         </div>
       </article>
     </Layout>
