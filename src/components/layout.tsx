@@ -33,30 +33,30 @@ export const Layout: VFC<Props> =({ children, home }) =>{
       </Head>
       <header className={styles.header}>
         {home ? (
-          <HStack spacing="8" marginBottom="10" p="4">
+          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center">
             <Image
               src="/images/profile.jpeg"
               alt={name}
               borderRadius="full"
-              boxSize="60px"
+              boxSize="50px"
             />
-            <Text fontSize="xxx-large" fontWeight="bold">{name}</Text>
+            <Text fontSize="xx-large" fontWeight="bold">{name}</Text>
           </HStack>
         ) : (
-          <HStack spacing="8" marginBottom="10" p="4">
+          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center">
             <Link href="/">
               <a>
                 <Image
                 src="/images/profile.jpeg"
                 alt={name}
                 borderRadius="full"
-                boxSize="60px"
+                boxSize="50px"
                 />
               </a>
             </Link>
             <Link href="/">
               <a>
-                <Text fontSize="xxx-large" fontWeight="bold">{name}</Text>
+                <Text fontSize="xx-large" fontWeight="bold">{name}</Text>
               </a>
             </Link>
           </HStack>
