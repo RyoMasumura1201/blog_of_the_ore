@@ -3,7 +3,6 @@ import { VFC } from 'react'
 import { Header } from './Header'
 import { Footer } from './Footer'
 
-const name = 'blog_of_the_ryo'
 export const siteTitle = 'blog_of_the_ryo'
 
 type Props = {
