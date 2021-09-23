@@ -20,7 +20,7 @@ export const Header: React.VFC<Props> = (props) => {
             <Text fontSize="xx-large" fontWeight="bold">{siteTitle}</Text>
           </HStack>
         ) : (
-          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center">
+          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center" top="0">
             <Link href="/">
               <a>
                 <Image
