@@ -1,9 +1,6 @@
 import Head from 'next/head'
-import styles from './layout.module.css'
-import utilStyles from '../../styles/util.module.css'
-import Link from 'next/link'
 import { VFC } from 'react'
-import { Image, HStack, Text } from "@chakra-ui/react"
+import { Header } from './Header'
 import { Footer } from './Footer'
 
 const name = 'blog_of_the_ryo'
@@ -32,37 +29,7 @@ export const Layout: VFC<Props> =({ children, home }) =>{
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header>
-        {home ? (
-          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center" top="0">
-            <Image
-              src="/images/profile.jpeg"
-              alt={name}
-              borderRadius="full"
-              boxSize="50px"
-            />
-            <Text fontSize="xx-large" fontWeight="bold">{name}</Text>
-          </HStack>
-        ) : (
-          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center">
-            <Link href="/">
-              <a>
-                <Image
-                src="/images/profile.jpeg"
-                alt={name}
-                borderRadius="full"
-                boxSize="50px"
-                />
-              </a>
-            </Link>
-            <Link href="/">
-              <a>
-                <Text fontSize="xx-large" fontWeight="bold">{name}</Text>
-              </a>
-            </Link>
-          </HStack>
-        )}
-      </header>
+      <Header home={home} />
       <main>{children}</main>
       <Footer />
     </>
