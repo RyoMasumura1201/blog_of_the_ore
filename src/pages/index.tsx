@@ -5,7 +5,7 @@ import utilStyles from 'styles/util.module.css'
 import { getSortedPostsData } from 'lib/posts'
 import { GetStaticProps } from 'next'
 import { Date } from '../components/date'
-import { Box, Center, Wrap, WrapItem } from '@chakra-ui/layout'
+import { Box, Wrap, WrapItem } from '@chakra-ui/layout'
 import { Image, Stack, Text } from "@chakra-ui/react"
 import router from 'next/router'
 
