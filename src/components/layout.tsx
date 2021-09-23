@@ -33,9 +33,9 @@ export const Layout: VFC<Props> =({ children, home }) =>{
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
+      <header>
         {home ? (
-          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center">
+          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center" top="0">
             <Image
               src="/images/profile.jpeg"
               alt={name}
