@@ -4,6 +4,8 @@ import utilStyles from '../../styles/util.module.css'
 import Link from 'next/link'
 import { VFC } from 'react'
 import { Image, HStack, Text } from "@chakra-ui/react"
+import { Box,Center } from '@chakra-ui/layout'
+import { FaGithub } from 'react-icons/fa'
 
 const name = 'blog_of_the_ryo'
 export const siteTitle = 'blog_of_the_ryo'
@@ -15,7 +17,7 @@ type Props = {
 
 export const Layout: VFC<Props> =({ children, home }) =>{
   return (
-    <div>
+    <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -64,12 +66,21 @@ export const Layout: VFC<Props> =({ children, home }) =>{
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <Box mt="5" textAlign="center" color="blue.400">
           <Link href="/">
             <a>← Back to home</a>
           </Link>
-        </div>
+        </Box>
       )}
-    </div>
+      <footer>
+        <Box bg="black" width="100%" p="4" mt="4">
+          <Center>
+          <a href="https://github.com/RyoMasumura1201">
+            <FaGithub  color=" white" size="50"/>
+          </a>
+          </Center>
+        </Box>
+      </footer>
+    </>
   )
 }
