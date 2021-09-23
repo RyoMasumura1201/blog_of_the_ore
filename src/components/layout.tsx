@@ -4,8 +4,7 @@ import utilStyles from '../../styles/util.module.css'
 import Link from 'next/link'
 import { VFC } from 'react'
 import { Image, HStack, Text } from "@chakra-ui/react"
-import { Box,Center } from '@chakra-ui/layout'
-import { FaGithub } from 'react-icons/fa'
+import { Footer } from './Footer'
 
 const name = 'blog_of_the_ryo'
 export const siteTitle = 'blog_of_the_ryo'
@@ -65,22 +64,7 @@ export const Layout: VFC<Props> =({ children, home }) =>{
         )}
       </header>
       <main>{children}</main>
-      {!home && (
-        <Box mt="5" textAlign="center" color="blue.400">
-          <Link href="/">
-            <a>← Back to home</a>
-          </Link>
-        </Box>
-      )}
-      <footer>
-        <Box bg="black" width="100%" p="4" mt="4" position="fixed" bottom="0">
-          <Center>
-          <a href="https://github.com/RyoMasumura1201">
-            <FaGithub  color=" white" size="50"/>
-          </a>
-          </Center>
-        </Box>
-      </footer>
+      <Footer />
     </>
   )
 }
