@@ -5,11 +5,10 @@ import Head from 'next/head';
 import {Date} from '../../components/date';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
-import utilStyles from '../../../styles/util.module.css'
-// import Prism from 'Prismjs'
+import markdownStyles from '../../../styles/markdown.module.css'
 import { Text } from "@chakra-ui/react"
 import { Box } from '@chakra-ui/layout'
-// import 'github-markdown-css';
+import 'github-markdown-css';
 import CodeBlock from '../../components/CodeBlock';
 type Props = {
   postData: {
@@ -32,7 +31,7 @@ export default function Post(props: Props) {
         <Box textAlign="center" marginBottom="10" color="gray.500">
           <Date dateString={postData.date} />
         </Box>
-        <Box paddingLeft="10" paddingRight="10">
+        <Box paddingLeft="20" paddingRight="20" className={markdownStyles.markdownBody}>
           <ReactMarkdown remarkPlugins={[gfm]} children={postData.content} components={{code: CodeBlock}}/>
         </Box>
       </article>
