@@ -13,8 +13,9 @@ const CodeBlock: CodeComponent = ({ inline, className, children }) => {
     <SyntaxHighlighter
       style={sunburst}
       language={lang}
-      children={String(children).replace(/\n$/, '')}
-    />
+    >
+      {String(children).replace(/\n$/, '')}
+    </SyntaxHighlighter>
   );
 };
 

@@ -31,7 +31,7 @@ export default function Post(props: Props) {
           <Date dateString={postData.date} />
         </Box>
         <Box paddingLeft="20" paddingRight="20" className={markdownStyles.markdownBody}>
-          <ReactMarkdown remarkPlugins={[gfm]} children={postData.content} components={{code: CodeBlock}}/>
+          <ReactMarkdown remarkPlugins={[gfm]} components={{code: CodeBlock}}>{postData.content}</ReactMarkdown>
         </Box>
       </article>
     </Layout>
