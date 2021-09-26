@@ -8,7 +8,6 @@ import gfm from 'remark-gfm';
 import markdownStyles from '../../../styles/markdown.module.css'
 import { Text } from "@chakra-ui/react"
 import { Box } from '@chakra-ui/layout'
-import 'github-markdown-css';
 import CodeBlock from '../../components/CodeBlock';
 type Props = {
   postData: {
