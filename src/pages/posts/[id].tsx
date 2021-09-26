@@ -2,31 +2,40 @@ import {Layout} from '../../components/layout'
 import { getAllPostIds, getPostData } from 'lib/posts'
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import {Date} from '../../components/date'
-import utilStyles from '../../../styles/util.module.css'
-
-export default function Post({
-  postData
-}: {
+import {Date} from '../../components/date';
+import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
+import markdownStyles from '../../../styles/markdown.module.css'
+import { Text } from "@chakra-ui/react"
+import { Box } from '@chakra-ui/layout'
+import CodeBlock from '../../components/CodeBlock';
+type Props = {
   postData: {
     id: string
     title: string
     date: string
-    contentHtml: string
+    content: string
   }
-}) {
-  return <Layout>
-    <Head>
-      <title>{postData.title}</title>
-    </Head>
-    <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+}
+export default function Post(props: Props) {
+  const {postData} = props;
+
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      <article>
+        <Text  textAlign="center" fontSize="x-large" fontWeight="bold">{postData.title}</Text>
+        <Box textAlign="center" marginBottom="10" color="gray.500">
           <Date dateString={postData.date} />
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </Box>
+        <Box paddingLeft="20" paddingRight="20" className={markdownStyles.markdownBody}>
+          <ReactMarkdown remarkPlugins={[gfm]} components={{code: CodeBlock}}>{postData.content}</ReactMarkdown>
+        </Box>
       </article>
-  </Layout>
+    </Layout>
+  )
 }
 
 export const getStaticPaths: GetStaticPaths = async() => {

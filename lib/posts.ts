@@ -56,17 +56,9 @@ export const getPostData = async(id: string) => {
 
   const matterResult: matter.GrayMatterFile<string> = matter(fileContents);
 
-  const processedContent = await unified()
-    .use(remarkParse)
-    .use(html)
-    .process(matterResult.content)
-  
-  const contentHtml = processedContent.toString();
-
   return {
     id,
-    contentHtml,
+    content:matterResult.content,
     ...matterResult.data as {date: string; title: string}
   }
-
 }
