@@ -8,8 +8,14 @@ body {
 }
 
 main {
-  min-height: calc(100vh - 92px);
+  padding-top: 92px;
+  min-height: 100vh;
   padding-bottom: 82px;
+}
+
+header {
+  position: fixed;
+  width: 100%;
 }
 
 footer {

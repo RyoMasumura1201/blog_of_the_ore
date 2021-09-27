@@ -10,7 +10,7 @@ export const Header: React.VFC<Props> = (props) => {
     return (
         <header>
         {home ? (
-          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center" top="0">
+          <HStack spacing="8" p="4" bg="black" color="white" justify="center" >
             <Image
               src="/images/profile.jpeg"
               alt={siteTitle}
@@ -20,7 +20,7 @@ export const Header: React.VFC<Props> = (props) => {
             <Text fontSize="xx-large" fontWeight="bold">{siteTitle}</Text>
           </HStack>
         ) : (
-          <HStack spacing="8" marginBottom="10" p="4" bg="black" color="white" width="100%" justify="center" top="0">
+          <HStack spacing="8" p="4" bg="black" color="white" justify="center" >
             <Link href="/">
               <a>
                 <Image
