@@ -25,6 +25,7 @@ export default function Home({
       date: string
       title: string
       id: string
+      image: string
     }[]
   }) {
   return (
@@ -33,11 +34,11 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
         <Wrap justify="center" spacing="30px">
-          {allPostsData.map(({id, date, title}) => (
+          {allPostsData.map(({id, date, title, image}) => (
             <WrapItem key={id}>
               <Box w = "360px" h="360px" bg="gray.100" borderRadius="20px" p="4" onClick={()=> router.push(`/posts/${id}`)} _hover={{opacity: 0.5, cursor: "pointer"}}>
                 <Stack textAlign="center">
-                <Image src="/images/profile.jpeg" boxSize="240px" alt="thumbnail" m="auto" borderRadius="full"/>
+                <Image src={image} boxSize="240px" alt="thumbnail" m="auto" borderRadius="full"/>
                 <Text fontSize="lg" fontWeight="bold">{title}</Text>
                 <Date dateString={date} />
                 </Stack>

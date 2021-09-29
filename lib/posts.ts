@@ -1,14 +1,12 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { unified } from 'unified';
-import html from 'remark-html';
-import remarkParse from 'remark-parse'
 
 type postDataType = {
     id: string,
     date: string,
-    title: string 
+    title: string,
+    image: string 
 }
 
 const postsDirectory:string = path.join(process.cwd(), 'posts');
@@ -25,7 +23,7 @@ export const getSortedPostsData = () => {
 
         return {
             id,
-            ...(matterResult.data as {date: string; title: string}) 
+            ...(matterResult.data as {date: string; title: string; image: string}) 
         }
     })
 
@@ -59,6 +57,6 @@ export const getPostData = async(id: string) => {
   return {
     id,
     content:matterResult.content,
-    ...matterResult.data as {date: string; title: string}
+    ...matterResult.data as {date: string; title: string; image: string}
   }
 }
