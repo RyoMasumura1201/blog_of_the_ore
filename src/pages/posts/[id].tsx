@@ -9,6 +9,7 @@ import markdownStyles from '../../../styles/markdown.module.css'
 import { Text } from "@chakra-ui/react"
 import { Box } from '@chakra-ui/layout'
 import CodeBlock from '../../components/CodeBlock';
+import { ReactMarkdownNames, TransformImage } from 'react-markdown/lib/ast-to-react'
 type Props = {
   postData: {
     id: string
@@ -32,7 +33,23 @@ export default function Post(props: Props) {
           <Date dateString={postData.date} />
         </Box>
         <Box paddingLeft="20" paddingRight="20" className={markdownStyles.markdownBody}>
-          <ReactMarkdown remarkPlugins={[gfm]} components={{code: CodeBlock}}>{postData.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[gfm]} components={{code: CodeBlock, 
+          // [TODO]仮でany置いてるので適切な型に 
+            p: ({ node, children }:{node: any; children: any}) => {
+              if (node.children[0].tagName === "img") {
+                  const image: any = node.children[0];
+                  return (
+                      <picture>
+                          <img
+                              src = {require(`../../../posts/${postData.id}/${image.properties.src}`)}
+                              alt={image.properties.alt}
+                          />
+                      </picture>
+                  );
+              }
+              return <p>{children}</p>;
+          },
+            }}>{postData.content}</ReactMarkdown>
         </Box>
       </article>
     </Layout>
