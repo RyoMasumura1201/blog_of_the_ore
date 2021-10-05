@@ -6,7 +6,7 @@ import {Date} from '../../components/date';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import markdownStyles from '../../../styles/markdown.module.css'
-import { Text } from "@chakra-ui/react"
+import { Text,Image } from "@chakra-ui/react"
 import { Box } from '@chakra-ui/layout'
 import CodeBlock from '../../components/CodeBlock';
 import { ReactNode } from 'react';
@@ -29,7 +29,7 @@ export default function Post(props: Props) {
 
       return (
         <picture>
-          <img
+          <Image
             src = {require(`../../../posts/${postData.id}/${image.properties.src}`)}
             alt={image.properties.alt}
           />
