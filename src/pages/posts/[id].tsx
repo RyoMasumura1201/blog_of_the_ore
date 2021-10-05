@@ -23,6 +23,22 @@ type Props = {
 export default function Post(props: Props) {
   const {postData} = props;
 
+  const Img = ({ node, children }:{ node: any; children: ReactNode }) => {
+    if (node.children[0].tagName === "img") {
+      const image = node.children[0];
+
+      return (
+        <picture>
+          <img
+            src = {require(`../../../posts/${postData.id}/${image.properties.src}`)}
+            alt={image.properties.alt}
+          />
+        </picture>
+      );
+    }
+    return <p>{children}</p>;
+  }
+
   return (
     <Layout>
       <Head>
@@ -35,21 +51,7 @@ export default function Post(props: Props) {
         </Box>
         <Box paddingLeft="20" paddingRight="20" className={markdownStyles.markdownBody}>
           <ReactMarkdown remarkPlugins={[gfm]} components={{code: CodeBlock, 
-            p: ({ node, children }:{ node: any; children: ReactNode }) => {
-              if (node.children[0].tagName === "img") {
-                const image = node.children[0];
-          
-                return (
-                  <picture>
-                    <img
-                      src = {require(`../../../posts/${postData.id}/${image.properties.src}`)}
-                      alt={image.properties.alt}
-                    />
-                  </picture>
-                );
-              }
-              return <p>{children}</p>;
-            },
+            p: Img,
           }}>{postData.content}</ReactMarkdown>
         </Box>
       </article>
