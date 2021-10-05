@@ -1,31 +1,29 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { unified } from 'unified';
-import html from 'remark-html';
-import remarkParse from 'remark-parse'
 
 type postDataType = {
     id: string,
     date: string,
-    title: string 
+    title: string,
+    image: string 
 }
 
 const postsDirectory:string = path.join(process.cwd(), 'posts');
 
 export const getSortedPostsData = () => {
-    const fileNames:string[] = fs.readdirSync(postsDirectory)
-    const allPostsData:postDataType[] = fileNames.map(fileName => {
-        const id: string = fileName.replace(/\.md$/, '');
+    const dirNames:string[] = fs.readdirSync(postsDirectory)
+    const allPostsData:postDataType[] = dirNames.map(dirName => {
+        const id: string = dirName;
 
-        const fullPath: string = path.join(postsDirectory, fileName)
+        const fullPath: string = path.join(postsDirectory, dirName, 'index.md');
         const fileContents: string = fs.readFileSync(fullPath, 'utf8');
 
         const matterResult: matter.GrayMatterFile<string> = matter(fileContents);
 
         return {
             id,
-            ...(matterResult.data as {date: string; title: string}) 
+            ...(matterResult.data as {date: string; title: string; image: string}) 
         }
     })
 
@@ -39,19 +37,19 @@ export const getSortedPostsData = () => {
 }
 
 export const getAllPostIds= () => {
-    const fileNames: string[] = fs.readdirSync(postsDirectory);
+    const dirNames: string[] = fs.readdirSync(postsDirectory);
 
-    return fileNames.map(fileName => {
+    return dirNames.map(dirName => {
         return {
             params: {
-                id: fileName.replace(/\.md$/, '')
+                id: dirName
             }
         }
     })
 }
 
 export const getPostData = async(id: string) => {
-  const fullPath: string = path.join(postsDirectory, `${id}.md`);
+  const fullPath: string = path.join(postsDirectory, id, 'index.md');
   const fileContents: string = fs.readFileSync(fullPath, `utf8`);
 
   const matterResult: matter.GrayMatterFile<string> = matter(fileContents);
@@ -59,6 +57,6 @@ export const getPostData = async(id: string) => {
   return {
     id,
     content:matterResult.content,
-    ...matterResult.data as {date: string; title: string}
+    ...matterResult.data as {date: string; title: string; image: string}
   }
 }

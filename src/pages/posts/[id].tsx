@@ -6,19 +6,38 @@ import {Date} from '../../components/date';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import markdownStyles from '../../../styles/markdown.module.css'
-import { Text } from "@chakra-ui/react"
+import { Text,Image } from "@chakra-ui/react"
 import { Box } from '@chakra-ui/layout'
 import CodeBlock from '../../components/CodeBlock';
+import { ReactNode } from 'react';
+
 type Props = {
   postData: {
     id: string
     title: string
     date: string
+    image: string
     content: string
   }
 }
 export default function Post(props: Props) {
   const {postData} = props;
+
+  const Img = ({ node, children }:{ node: any; children: ReactNode }) => {
+    if (node.children[0].tagName === "img") {
+      const image = node.children[0];
+
+      return (
+        <picture>
+          <Image
+            src = {require(`../../../posts/${postData.id}/${image.properties.src}`)}
+            alt={image.properties.alt}
+          />
+        </picture>
+      );
+    }
+    return <p>{children}</p>;
+  }
 
   return (
     <Layout>
@@ -31,7 +50,9 @@ export default function Post(props: Props) {
           <Date dateString={postData.date} />
         </Box>
         <Box paddingLeft="20" paddingRight="20" className={markdownStyles.markdownBody}>
-          <ReactMarkdown remarkPlugins={[gfm]} components={{code: CodeBlock}}>{postData.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[gfm]} components={{code: CodeBlock, 
+            p: Img,
+          }}>{postData.content}</ReactMarkdown>
         </Box>
       </article>
     </Layout>
