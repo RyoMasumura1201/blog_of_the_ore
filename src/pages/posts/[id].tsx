@@ -49,7 +49,7 @@ export default function Post(props: Props) {
         <Box textAlign="center" marginBottom="10" color="gray.500">
           <Date dateString={postData.date} />
         </Box>
-        <Box paddingLeft="20" paddingRight="20" className={markdownStyles.markdownBody}>
+        <Box paddingLeft="40" paddingRight="40" className={markdownStyles.markdownBody}>
           <ReactMarkdown remarkPlugins={[gfm]} components={{code: CodeBlock, 
             p: Img,
           }}>{postData.content}</ReactMarkdown>
