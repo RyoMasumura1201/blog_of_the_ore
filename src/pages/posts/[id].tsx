@@ -1,12 +1,12 @@
-import {Layout} from '../../components/layout'
+import { Layout } from '../../components/layout'
 import { getAllPostIds, getPostData } from 'lib/posts'
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import {Date} from '../../components/date';
+import { Date } from '../../components/date';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import markdownStyles from '../../../styles/markdown.module.css'
-import { Text,Image } from "@chakra-ui/react"
+import { Text, Image } from "@chakra-ui/react"
 import { Box } from '@chakra-ui/layout'
 import CodeBlock from '../../components/CodeBlock';
 import { ReactNode } from 'react';
@@ -23,7 +23,7 @@ type Props = {
 export default function Post(props: Props) {
   const {postData} = props;
 
-  const Img = ({ node, children }:{ node: any; children: ReactNode }) => {
+  const Img = ({ node, children }:{node: JSX.IntrinsicElements['p'] ; children: ReactNode[]}) => {
     if (node.children[0].tagName === "img") {
       const image = node.children[0];
 
@@ -45,7 +45,7 @@ export default function Post(props: Props) {
         <title>{postData.title}</title>
       </Head>
       <article>
-        <Text  textAlign="center" fontSize="x-large" fontWeight="bold">{postData.title}</Text>
+        <Text textAlign="center" fontSize="x-large" fontWeight="bold">{postData.title}</Text>
         <Box textAlign="center" marginBottom="10" color="gray.500">
           <Date dateString={postData.date} />
         </Box>
