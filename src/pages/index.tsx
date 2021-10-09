@@ -3,7 +3,7 @@ import { siteTitle, Layout } from '../components/Layout'
 import { getSortedPostsData } from 'lib/posts'
 import { GetStaticProps } from 'next'
 import { Wrap, WrapItem } from '@chakra-ui/layout'
-import { ArticleCard } from '@/components/ArticleCard'
+import ArticleCard from '../components/ArticleCard'
 
 export const getStaticProps: GetStaticProps = async()=> {
   const allPostsData = getSortedPostsData()

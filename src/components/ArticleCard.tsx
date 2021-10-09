@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/layout'
 import { Image, Stack, Text } from "@chakra-ui/react"
 import router from 'next/router'
-import { Date } from './Date'
+import Date from './Date'
 import { VFC, memo } from 'react'
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
   image: string;
 }
 
-export const ArticleCard: VFC<Props> = memo((props) => {
+const ArticleCard: VFC<Props> = memo((props) => {
   const { id, date, title, image } = props
   return (
 		<Box w = "360px" h="360px" bg="gray.100" borderRadius="20px" p="4" onClick={()=> router.push(`/posts/${id}`)} _hover={{opacity: 0.5, cursor: "pointer"}}>
@@ -23,3 +23,5 @@ export const ArticleCard: VFC<Props> = memo((props) => {
     </Box>
 	)
 })
+
+export default memo(ArticleCard);

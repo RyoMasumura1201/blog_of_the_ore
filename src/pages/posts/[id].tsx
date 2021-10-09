@@ -2,7 +2,7 @@ import { Layout } from '../../components/Layout'
 import { getAllPostIds, getPostData } from 'lib/posts'
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { Date } from '../../components/Date';
+import Date from '../../components/Date';
 import ReactMarkdown from 'react-markdown';
 import gfm from 'remark-gfm';
 import markdownStyles from '../../../styles/markdown.module.css'
