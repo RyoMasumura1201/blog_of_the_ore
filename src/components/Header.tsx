@@ -1,6 +1,6 @@
 import { Image, HStack, Text } from "@chakra-ui/react"
 import Link from 'next/link'
-import { siteTitle } from '../components/Layout'
+import { siteTitle } from './Layout'
 
 type Props = {
     home?: boolean
