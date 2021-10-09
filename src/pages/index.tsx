@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import { siteTitle, Layout } from '../components/layout'
+import { siteTitle, Layout } from '../components/Layout'
 import { getSortedPostsData } from 'lib/posts'
 import { GetStaticProps } from 'next'
-import { Date } from '../components/date'
+import { Date } from '../components/Date'
 import { Box, Wrap, WrapItem } from '@chakra-ui/layout'
 import { Image, Stack, Text } from "@chakra-ui/react"
 import router from 'next/router'
