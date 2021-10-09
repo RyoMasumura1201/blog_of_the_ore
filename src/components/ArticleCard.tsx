@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/layout'
 import { Image, Stack, Text } from "@chakra-ui/react"
 import router from 'next/router'
-import { Date } from '../components/Date'
+import { Date } from './Date'
 import { VFC, memo } from 'react'
 
 type Props = {
