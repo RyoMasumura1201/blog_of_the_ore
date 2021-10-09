@@ -11,7 +11,7 @@ type Props = {
   image: string;
 }
 
-const ArticleCard: VFC<Props> = memo((props) => {
+const ArticleCard: VFC<Props> = (props) => {
   const { id, date, title, image } = props
   return (
 		<Box w = "360px" h="360px" bg="gray.100" borderRadius="20px" p="4" onClick={()=> router.push(`/posts/${id}`)} _hover={{opacity: 0.5, cursor: "pointer"}}>
@@ -22,6 +22,6 @@ const ArticleCard: VFC<Props> = memo((props) => {
       </Stack>
     </Box>
 	)
-})
+}
 
 export default memo(ArticleCard);
