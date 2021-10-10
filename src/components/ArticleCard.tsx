@@ -15,18 +15,18 @@ const ArticleCard: VFC<Props> = (props) => {
   const { id, date, title, image } = props;
   return (
     <Box
-      w='360px'
-      h='360px'
+      w='300px'
+      h='300px'
       bg='gray.100'
       borderRadius='20px'
-      p='4'
+      p='2'
       onClick={() => router.push(`/posts/${id}`)}
       _hover={{ opacity: 0.5, cursor: 'pointer' }}
     >
       <Stack textAlign='center'>
         <Image
           src={require(`../../posts/${id}/${image}`)}
-          boxSize='240px'
+          boxSize='160px'
           alt='thumbnail'
           m='auto'
           borderRadius='full'
