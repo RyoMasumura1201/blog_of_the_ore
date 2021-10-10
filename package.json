@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.7",
@@ -35,10 +36,20 @@
     "@types/react-syntax-highlighter": "^13.5.2",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "^2.4.1",
     "raw-loader": "^4.0.2",
     "react-markdown": "^7.0.1",
     "react-syntax-highlighter": "^15.4.4",
     "remark-gfm": "^2.0.0",
     "typescript": "^4.4.2"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "printWidth": 100
   }
 }
