@@ -1,14 +1,9 @@
 import algoliasearch from 'algoliasearch/lite';
-import {
-  SearchBox,
-  Hits,
-  Highlight,
-  InstantSearch,
-  connectSearchBox,
-} from 'react-instantsearch-dom';
+import { Hits, Highlight, InstantSearch, connectSearchBox } from 'react-instantsearch-dom';
 import Link from 'next/link';
 import { Box } from '@chakra-ui/layout';
-import { Input } from '@chakra-ui/react';
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons';
 
 export const Search: React.VFC = () => {
   const searchClient = algoliasearch(
@@ -20,11 +15,16 @@ export const Search: React.VFC = () => {
   const SearchBox = ({ currentRefinement, refine }: any) => {
     return (
       <Box w='80%' m='auto'>
-        <Input
-          placeholder='記事を検索'
-          value={currentRefinement}
-          onChange={(e) => refine(e.currentTarget.value)}
-        />
+        <InputGroup>
+          <Input
+            placeholder='記事を検索'
+            value={currentRefinement}
+            onChange={(e) => refine(e.currentTarget.value)}
+          />
+          <InputLeftElement>
+            <SearchIcon color='gray.700' />
+          </InputLeftElement>
+        </InputGroup>
       </Box>
     );
   };
