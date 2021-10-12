@@ -1,6 +1,7 @@
 import algoliasearch from 'algoliasearch/lite';
 import { SearchBox, Hits, Highlight, InstantSearch } from 'react-instantsearch-dom';
 import Link from 'next/link';
+import { Box } from '@chakra-ui/layout';
 
 export const Search: React.VFC = () => {
   const searchClient = algoliasearch(
@@ -13,16 +14,18 @@ export const Search: React.VFC = () => {
     return (
       <Link href={`/posts/${hit.id}`}>
         <a>
-          <Highlight attribute='title' hit={hit} />
+          <Highlight attribute='title' hit={hit} tagName='mark' />
         </a>
       </Link>
     );
   };
 
   return (
-    <InstantSearch indexName={indexName} searchClient={searchClient}>
-      <SearchBox />
-      <Hits hitComponent={HitBlock} />
-    </InstantSearch>
+    <Box w='100%' p='4' textAlign='center'>
+      <InstantSearch indexName={indexName} searchClient={searchClient}>
+        <SearchBox />
+        <Hits hitComponent={HitBlock} />
+      </InstantSearch>
+    </Box>
   );
 };
