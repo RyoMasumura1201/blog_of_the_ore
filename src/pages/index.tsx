@@ -31,7 +31,7 @@ export default function Home({
         <title>{siteTitle}</title>
       </Head>
       <Search />
-      <Wrap justify='center' spacing='30px'>
+      <Wrap justify='center' spacing='30px' mt='4'>
         {allPostsData.map(({ id, date, title, image }) => (
           <WrapItem key={id}>
             <ArticleCard id={id} date={date} title={title} image={image} />
