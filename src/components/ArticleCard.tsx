@@ -22,6 +22,7 @@ const ArticleCard: VFC<Props> = (props) => {
       p='2'
       onClick={() => router.push(`/posts/${id}`)}
       _hover={{ opacity: 0.5, cursor: 'pointer' }}
+      boxShadow='md'
     >
       <Stack textAlign='center'>
         <Image
