@@ -4,6 +4,7 @@ import { getSortedPostsData } from 'lib/posts';
 import { GetStaticProps } from 'next';
 import { Wrap, WrapItem } from '@chakra-ui/layout';
 import ArticleCard from '../components/ArticleCard';
+import { Search } from '../components/Search';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -29,7 +30,8 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <Wrap justify='center' spacing='30px'>
+      <Search />
+      <Wrap justify='center' spacing='30px' mt='4'>
         {allPostsData.map(({ id, date, title, image }) => (
           <WrapItem key={id}>
             <ArticleCard id={id} date={date} title={title} image={image} />
