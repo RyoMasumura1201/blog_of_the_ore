@@ -7,6 +7,7 @@ import { SearchIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 
 export const Search: React.VFC = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const searchClient = algoliasearch(
     process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
     process.env.NEXT_PUBLIC_ALGOLIA_API_KEY,
@@ -14,8 +15,6 @@ export const Search: React.VFC = () => {
   const indexName = 'blog_of_the_ryo';
 
   const SearchBox = ({ currentRefinement, refine }: any) => {
-    const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(!open);
     return (
       <Box w='100%' m='auto'>
         <InputGroup>
@@ -23,8 +22,6 @@ export const Search: React.VFC = () => {
             placeholder='記事を検索'
             value={currentRefinement}
             onChange={(e) => refine(e.currentTarget.value)}
-            onFocus={handleOpen}
-            onBlur={handleOpen}
           />
           <InputLeftElement>
             <SearchIcon color='gray.700' />
@@ -49,18 +46,29 @@ export const Search: React.VFC = () => {
   };
 
   return (
-    <Box w='100%' pl='100' pr='100' textAlign='center'>
+    <Box
+      w='100%'
+      pl='100'
+      pr='100'
+      textAlign='center'
+      onFocus={() => setIsOpen(true)}
+      onBlur={() => setIsOpen(false)}
+    >
       <InstantSearch indexName={indexName} searchClient={searchClient}>
         <CustomSearchBox />
-        <Box style={{ position: 'relative', width: '100%' }}>
-          <Box
-            zIndex='10'
-            boxShadow='md'
-            style={{ position: 'absolute', backgroundColor: 'white', width: '100%' }}
-          >
-            <Hits hitComponent={HitBlock} />
+        {isOpen ? (
+          <Box style={{ position: 'relative', width: '100%' }}>
+            <Box
+              zIndex='10'
+              boxShadow='md'
+              style={{ position: 'absolute', backgroundColor: 'white', width: '100%' }}
+            >
+              <Hits hitComponent={HitBlock} />
+            </Box>
           </Box>
-        </Box>
+        ) : (
+          <></>
+        )}
       </InstantSearch>
     </Box>
   );
