@@ -28,6 +28,8 @@ const ArticleCard: VFC<Props> = (props) => {
         <Image
           src={require(`../../posts/${id}/${image}`)}
           boxSize='160px'
+          w='160px'
+          l='160px'
           alt='thumbnail'
           m='auto'
           borderRadius='full'
