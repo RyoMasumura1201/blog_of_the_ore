@@ -1,5 +1,5 @@
 import algoliasearch from 'algoliasearch/lite';
-import { Hits, Highlight, InstantSearch, connectSearchBox } from 'react-instantsearch-dom';
+import { Hits, Highlight, InstantSearch } from 'react-instantsearch-dom';
 import Link from 'next/link';
 import { Box } from '@chakra-ui/layout';
 import { useState } from 'react';
@@ -7,6 +7,17 @@ import CustomSearchBox from './CustomSearchBox';
 
 export const Search: React.VFC = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  //https://gist.github.com/pstoica/4323d3e6e37e8a23dd59
+  //activeElementが生まれた後に判定するためにsetTimeoutを用いる
+  const handleBlur = (e: { currentTarget: Element }) => {
+    const currentTarget = e.currentTarget;
+    setTimeout(() => {
+      if (!currentTarget.contains(document.activeElement)) {
+        setIsOpen(false);
+      }
+    }, 0);
+  };
 
   const searchClient = algoliasearch(
     process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -27,13 +38,7 @@ export const Search: React.VFC = () => {
   };
 
   return (
-    <Box
-      w='70%'
-      textAlign='center'
-      m='0 auto'
-      onFocus={() => setIsOpen(true)}
-      onBlur={() => setIsOpen(false)}
-    >
+    <Box w='70%' textAlign='center' m='0 auto' onFocus={() => setIsOpen(true)} onBlur={handleBlur}>
       <InstantSearch indexName={indexName} searchClient={searchClient}>
         <CustomSearchBox />
         {isOpen ? (
