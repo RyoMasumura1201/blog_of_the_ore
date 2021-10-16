@@ -10,7 +10,7 @@ export const Search: React.VFC = () => {
 
   //https://gist.github.com/pstoica/4323d3e6e37e8a23dd59
   //activeElementが生まれた後に判定するためにsetTimeoutを用いる
-  const handleBlur = (e: { currentTarget: Element }) => {
+  const handleBlur = (e: { currentTarget: HTMLElement }) => {
     const currentTarget = e.currentTarget;
     setTimeout(() => {
       if (!currentTarget.contains(document.activeElement)) {
