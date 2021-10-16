@@ -1,6 +1,7 @@
-import { Image, HStack, Text } from '@chakra-ui/react';
+import { HStack, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 import { siteTitle } from './Layout';
+import Image from 'next/image';
 
 type Props = {
   home?: boolean;
@@ -14,10 +15,9 @@ export const Header: React.VFC<Props> = (props) => {
           <Image
             src='/images/profile.jpeg'
             alt={siteTitle}
-            borderRadius='full'
-            boxSize='50px'
-            w='50px'
-            l='50px'
+            width='50px'
+            height='50px'
+            className='headerImage'
           />
           <Text fontSize='xx-large' fontWeight='bold'>
             {siteTitle}
@@ -30,8 +30,9 @@ export const Header: React.VFC<Props> = (props) => {
               <Image
                 src='/images/profile.jpeg'
                 alt={siteTitle}
-                borderRadius='full'
-                boxSize='50px'
+                width='50px'
+                height='50px'
+                className='headerImage'
               />
             </a>
           </Link>

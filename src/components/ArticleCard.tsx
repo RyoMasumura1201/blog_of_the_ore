@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/layout';
-import { Image, Stack, Text } from '@chakra-ui/react';
+import { Stack, Text } from '@chakra-ui/react';
 import router from 'next/router';
+import Image from 'next/image';
 import Date from './Date';
 import { VFC, memo } from 'react';
 
@@ -27,13 +28,11 @@ const ArticleCard: VFC<Props> = (props) => {
       <Stack textAlign='center'>
         <Image
           src={require(`../../posts/${id}/${image}`)}
-          boxSize='160px'
-          w='160px'
-          l='160px'
+          width='160px'
+          height='160px'
           alt='thumbnail'
-          m='auto'
-          borderRadius='full'
-          fit='contain'
+          objectFit='contain'
+          className='articleCardImage'
         />
         <Text fontSize='lg' fontWeight='bold'>
           {title}

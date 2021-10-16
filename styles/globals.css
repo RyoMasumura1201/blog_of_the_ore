@@ -40,3 +40,11 @@ img {
 li {
   list-style: none;
 }
+
+.headerImage {
+  border-radius: 100%;
+}
+
+.articleCardImage {
+  margin: 0 auto;
+}
