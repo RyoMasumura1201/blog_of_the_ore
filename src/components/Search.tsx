@@ -28,10 +28,9 @@ export const Search: React.VFC = () => {
 
   return (
     <Box
-      w='100%'
-      pl='100'
-      pr='100'
+      w='70%'
       textAlign='center'
+      m='0 auto'
       onFocus={() => setIsOpen(true)}
       onBlur={() => setIsOpen(false)}
     >
