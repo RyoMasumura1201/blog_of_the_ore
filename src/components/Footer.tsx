@@ -11,7 +11,9 @@ export const Footer: React.VFC = () => {
             <Center>
               <FaGithub color='white' size='50' />
             </Center>
-            <Text color='gray.100'>Source Code is here</Text>
+            <Text color='gray.100' fontSize='sm'>
+              Source Code is here
+            </Text>
           </a>
         </Center>
       </Box>
