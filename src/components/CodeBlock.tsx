@@ -14,7 +14,7 @@ const CodeBlock: CodeComponent = ({ inline, className, children }) => {
   return (
     <>
       {name ? (
-        <Box position='relative'>
+        <Box position='relative' zIndex='-10'>
           <Box display='inline-block' position='absolute' bg='gray.100'>
             {name}
           </Box>
