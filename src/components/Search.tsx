@@ -46,7 +46,12 @@ export const Search: React.VFC = () => {
             <Box
               zIndex='10'
               boxShadow='md'
-              style={{ position: 'absolute', backgroundColor: 'white', width: '100%' }}
+              style={{
+                position: 'absolute',
+                backgroundColor: 'white',
+                width: '100%',
+              }}
+              className='search'
             >
               <Hits hitComponent={HitBlock} />
             </Box>
