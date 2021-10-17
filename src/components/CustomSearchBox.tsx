@@ -4,7 +4,13 @@ import { SearchIcon } from '@chakra-ui/icons';
 import { memo } from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
 
-const SearchBox = ({ currentRefinement, refine }: any) => {
+const SearchBox = ({
+  currentRefinement,
+  refine,
+}: {
+  currentRefinement: string;
+  refine: (string) => void;
+}) => {
   return (
     <Box w='100%' m='auto'>
       <InputGroup>
