@@ -7,6 +7,7 @@ type postDataType = {
   date: string;
   title: string;
   image: string;
+  objectID?: string; // algoliaのデータ通信で用いる
 };
 
 const postsDirectory: string = path.join(process.cwd(), 'posts');
