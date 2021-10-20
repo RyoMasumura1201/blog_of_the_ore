@@ -137,7 +137,7 @@ EOF
 
 // 依存先の tfstate の outputs を取得
 inputs = {
-subnet_id = dependency.network.outputs.subnet_id
+  subnet_id = dependency.network.outputs.subnet_id
 }
 
 ```
