@@ -1,0 +1,23 @@
+name: Register algolia
+
+on:
+  push:
+    branches: [main]
+    paths: ['posts/**']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - name: Create .env
+        
+        run: |
+          touch .env
+          echo NEXT_PUBLIC_ALGOLIA_APP_ID=${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID}} >> .env
+          echo ALGOLIA_ADMIN_KEY=${{ secrets.ALGOLIA_ADMIN_KEY}} >> .env
+          
+          
