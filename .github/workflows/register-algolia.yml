@@ -19,6 +19,9 @@ jobs:
           echo NEXT_PUBLIC_ALGOLIA_APP_ID=${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID}} >> .env.local
           echo ALGOLIA_ADMIN_KEY=${{ secrets.ALGOLIA_ADMIN_KEY}} >> .env.local
 
+      - name: npm install
+        run: npm install
+
       - name: Run algolia script
         run: npm run algolia
 
