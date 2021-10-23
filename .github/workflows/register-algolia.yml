@@ -14,16 +14,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Create .env
-
         run: |
-          touch .env
-          echo NEXT_PUBLIC_ALGOLIA_APP_ID=${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID}} >> .env
-          echo ALGOLIA_ADMIN_KEY=${{ secrets.ALGOLIA_ADMIN_KEY}} >> .env
-      - name: npm install
-        run: npm install
+          touch .env.local
+          echo NEXT_PUBLIC_ALGOLIA_APP_ID=${{ secrets.NEXT_PUBLIC_ALGOLIA_APP_ID}} >> .env.local
+          echo ALGOLIA_ADMIN_KEY=${{ secrets.ALGOLIA_ADMIN_KEY}} >> .env.local
 
       - name: Run algolia script
         run: npm run algolia
+
       - name: Commit and push
         run: |
           git config --local user.name 'ryo_of_the_ryo'
