@@ -8,7 +8,6 @@ const index = client.initIndex('blog_of_the_ryo');
 const allPostsData = getSortedPostsData();
 
 const main = () => {
-  console.log(process.env.NEXT_PUBLIC_ALGOLIA_APP_ID);
   index
     .search('')
     .then(({ hits }: any) => {
