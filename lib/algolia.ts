@@ -1,5 +1,6 @@
 import algoliasearch from 'algoliasearch';
 import { getSortedPostsData } from './posts';
+import { hits } from 'type';
 
 require('dotenv').config({ path: '.env.local' });
 
@@ -10,9 +11,7 @@ const allPostsData = getSortedPostsData();
 const main = () => {
   index
     .search('')
-    .then(({ hits }: any) => {
-      // 後で型修正
-
+    .then(({ hits }: hits) => {
       const hitsId = [];
       hits.map((hit) => {
         hitsId.push(hit.id);

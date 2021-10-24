@@ -4,7 +4,15 @@ import Link from 'next/link';
 import { Box } from '@chakra-ui/layout';
 import { useState } from 'react';
 import CustomSearchBox from './CustomSearchBox';
+import { hits } from 'type';
+// import { HitsProvided } from 'react-instantsearch-core';
 
+// type hit = {
+//   id: string;
+//   title: string;
+// };
+
+// type hits = HitsProvided<hit>;
 export const Search: React.VFC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,7 +33,7 @@ export const Search: React.VFC = () => {
   );
   const indexName = 'blog_of_the_ryo';
 
-  const HitBlock = ({ hit }: any) => {
+  const HitBlock = ({ hit }: hits) => {
     return (
       <Box fontSize='large' m='2'>
         <Link href={`/posts/${hit.id}`}>

@@ -1,14 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-
-type postDataType = {
-  id: string;
-  date: string;
-  title: string;
-  image: string;
-  objectID?: string; // algoliaのデータ通信で用いる
-};
+import { postDataType } from 'type';
 
 const postsDirectory: string = path.join(process.cwd(), 'posts');
 
