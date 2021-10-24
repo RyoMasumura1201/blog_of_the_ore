@@ -4,14 +4,15 @@ import Link from 'next/link';
 import { Box } from '@chakra-ui/layout';
 import { useState } from 'react';
 import CustomSearchBox from './CustomSearchBox';
-import { HitsProvided } from 'react-instantsearch-core';
+import { hits } from 'type';
+// import { HitsProvided } from 'react-instantsearch-core';
 
-type hit = {
-  id: string;
-  title: string;
-};
+// type hit = {
+//   id: string;
+//   title: string;
+// };
 
-type hits = HitsProvided<hit>;
+// type hits = HitsProvided<hit>;
 export const Search: React.VFC = () => {
   const [isOpen, setIsOpen] = useState(false);
 

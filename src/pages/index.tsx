@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next';
 import { Wrap, WrapItem } from '@chakra-ui/layout';
 import ArticleCard from '../components/ArticleCard';
 import { Search } from '../components/Search';
+import { postDataType } from 'type';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -15,16 +16,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Home({
-  allPostsData,
-}: {
-  allPostsData: {
-    date: string;
-    title: string;
-    id: string;
-    image: string;
-  }[];
-}) {
+export default function Home({ allPostsData }: { allPostsData: postDataType[] }) {
   return (
     <Layout home>
       <Head>

@@ -1,6 +1,6 @@
 import algoliasearch from 'algoliasearch';
 import { getSortedPostsData } from './posts';
-import { HitsProvided } from 'react-instantsearch-core';
+import { hits } from 'type';
 
 require('dotenv').config({ path: '.env.local' });
 
@@ -8,12 +8,6 @@ const client = algoliasearch(process.env.NEXT_PUBLIC_ALGOLIA_APP_ID, process.env
 const index = client.initIndex('blog_of_the_ryo');
 const allPostsData = getSortedPostsData();
 
-type hit = {
-  id: string;
-  title: string;
-};
-
-type hits = HitsProvided<hit>;
 const main = () => {
   index
     .search('')
