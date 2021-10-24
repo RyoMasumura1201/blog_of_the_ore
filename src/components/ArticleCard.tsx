@@ -4,15 +4,9 @@ import router from 'next/router';
 import Image from 'next/image';
 import Date from './Date';
 import { VFC, memo } from 'react';
+import { postDataType } from 'type';
 
-type Props = {
-  id: string;
-  date: string;
-  title: string;
-  image: string;
-};
-
-const ArticleCard: VFC<Props> = (props) => {
+const ArticleCard: VFC<postDataType> = (props) => {
   const { id, date, title, image } = props;
   return (
     <Box
