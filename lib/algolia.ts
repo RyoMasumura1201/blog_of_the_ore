@@ -12,10 +12,7 @@ const main = () => {
   index
     .search('')
     .then(({ hits }: hits) => {
-      const hitsId = [];
-      hits.map((hit) => {
-        hitsId.push(hit.id);
-      });
+      const hitsId = hits.map((hit) => hit.id);
 
       if (allPostsData.length > hits.length) {
         const newPost = allPostsData.filter((post) => {
