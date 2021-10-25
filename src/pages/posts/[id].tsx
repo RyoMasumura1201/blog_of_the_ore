@@ -10,15 +10,14 @@ import { Text, Image } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/layout';
 import CodeBlock from '../../components/CodeBlock';
 import { ReactNode } from 'react';
+import { postDataType } from 'type';
+
+interface postPage extends postDataType {
+  content: string;
+}
 
 type Props = {
-  postData: {
-    id: string;
-    title: string;
-    date: string;
-    image: string;
-    content: string;
-  };
+  postData: postPage;
 };
 export default function Post(props: Props) {
   const { postData } = props;
