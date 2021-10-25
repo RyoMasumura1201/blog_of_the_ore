@@ -9,7 +9,7 @@ type Props = {
 export const Header: React.VFC<Props> = (props) => {
   const { home } = props;
   return (
-    <header>
+    <header style={{ zIndex: 99 }}>
       {home ? (
         <HStack spacing='8' p='2' bg='black' color='white' justify='center'>
           <Image
