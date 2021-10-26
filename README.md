@@ -16,4 +16,4 @@ ALGOLIA_ADMIN_KEY=
 
 を追加
 
-記事追加時は post ディレクトリのしたのディレクトリ作って index.md に書く(template.md 参照)
+記事追加時は post ディレクトリの下に個別ディレクトリ作って index.md に書く(template.md 参照)
