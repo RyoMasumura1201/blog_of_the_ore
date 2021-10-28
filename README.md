@@ -1,4 +1,5 @@
-自分用のブログ
+自分用のブログ  
+https://blog-of-the-ore.vercel.app/
 
 ```bash
 npm run dev
