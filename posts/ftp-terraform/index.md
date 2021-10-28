@@ -15,7 +15,8 @@ FTP 接続の受信側の処理を行うデーモン。インストールする�
 
 ### セキュリティグループの設定
 
-vpc、サブネット等の設定は省きます
+vpc、サブネット等の設定は省きます  
+21 番ポートとデータ転送用のポート(今回は 60001 ~ 60000 番)を開きます
 
 ```hcl
 resource "aws_security_group" "this" {
@@ -118,7 +119,7 @@ echo password | passwd --stdin ftp-user
 ### 実行
 
 ```
-terraform apply
+ $ terraform apply
 ```
 
 以上により接続可能な ftp サーバを立てることができる。
