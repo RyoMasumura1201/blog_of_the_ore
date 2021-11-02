@@ -2,10 +2,9 @@ import Head from 'next/head';
 
 type Props = {
   title: string;
-  id?: string;
 };
 export const SEO: React.VFC<Props> = (props) => {
-  const { title, id } = props;
+  const { title } = props;
   return (
     <Head>
       <link
@@ -18,8 +17,9 @@ export const SEO: React.VFC<Props> = (props) => {
         href='https://twemoji.maxcdn.com/v/13.1.0/72x72/1f47b.png'
       />
       <title>{title}</title>
-      <meta name='description' content='blog of the ryo' />
       <meta name='og:title' content={title} />
+      <meta name='description' content='blog of the ryo' />
+      <meta property='og:description' content='blog of the ryo' />
       <meta name='twitter:card' content='summary_large_image' />
     </Head>
   );

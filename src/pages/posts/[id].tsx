@@ -42,7 +42,7 @@ export default function Post(props: Props) {
 
   return (
     <Layout>
-      <SEO title={postData.title} id={postData.id} />
+      <SEO title={postData.title} />
       <article>
         <Text textAlign='center' fontSize='x-large' fontWeight='bold'>
           {postData.title}
