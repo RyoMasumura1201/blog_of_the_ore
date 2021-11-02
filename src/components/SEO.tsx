@@ -4,7 +4,7 @@ type Props = {
   title: string;
   id?: string;
 };
-export const SE0: React.VFC<Props> = (props) => {
+export const SEO: React.VFC<Props> = (props) => {
   const { title, id } = props;
   return (
     <Head>

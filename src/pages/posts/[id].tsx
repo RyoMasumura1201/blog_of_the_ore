@@ -11,6 +11,7 @@ import { Box } from '@chakra-ui/layout';
 import CodeBlock from '../../components/CodeBlock';
 import { ReactNode } from 'react';
 import { postDataType } from 'type';
+import { SEO } from '@/components/SEO';
 
 interface postPage extends postDataType {
   content: string;
@@ -41,9 +42,7 @@ export default function Post(props: Props) {
 
   return (
     <Layout>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
+      <SEO title={postData.title} id={postData.id} />
       <article>
         <Text textAlign='center' fontSize='x-large' fontWeight='bold'>
           {postData.title}
