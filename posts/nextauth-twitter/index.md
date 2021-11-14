@@ -107,7 +107,7 @@ export default function Component() {
 # まとめ
 
 NextAuth による Twitter ログインの実装方法をかいた。
-Twitter developer の公式だと callbackURL にローカルループバックアドレスを設定するよう書いているのだが、そのままhttp://127.0.0.1 を設定していたのでうまくいかず、詰まってしまった。
+[Twitter developer の公式](https://developer.twitter.com/ja/docs/basics/apps/guides/callback-urls) だと callbackURL にローカルループバックアドレスを設定するよう書いているのだが、鵜呑みにしてそのままhttp://127.0.0.1 を設定していたので 403 エラーが出てしまい、詰まってしまった。
 
 # 参考情報
 
