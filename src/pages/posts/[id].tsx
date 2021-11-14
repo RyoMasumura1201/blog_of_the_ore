@@ -42,7 +42,13 @@ export default function Post(props: Props) {
 
   return (
     <Layout>
-      <SEO title={postData.title} />
+      <SEO
+        title={postData.title}
+        image={
+          'https://blog-of-the-ore.vercel.app' +
+          require(`../../../posts/${postData.id}/${postData.image}`)
+        }
+      />
       <article>
         <Text textAlign='center' fontSize='x-large' fontWeight='bold'>
           {postData.title}
