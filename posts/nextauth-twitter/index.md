@@ -18,6 +18,18 @@ Developer Portal の  権限設定(authentication settings)で Enable 3-legged 
 
 ![picture 2](20211114-index-callbackurl.png)
 
+## CallbackURL とは？
+
+別のサイト、web アプリで処理を行なった後のリダイレクト先の URL  
+今回は OAuth 認証後にセッション情報を返す URL 先を示す。  
+[NextAuth 公式](https://next-auth.js.org/getting-started/rest-api)に記載されているように NextAuth は
+
+```
+/api/auth/callback/:provider
+```
+
+によって OAuth からのリクエストを処理するので、CallbackURL は上記のように設定する必要がある。
+
 # 環境変数設定
 
 .env.local ファイルを作成。コピーした API Key と Secret Key を環境変数として与える
