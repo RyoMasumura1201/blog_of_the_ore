@@ -1,15 +1,19 @@
 import { CodeComponent } from 'react-markdown/lib/ast-to-react';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { sunburst } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+// import SyntaxHighlighter from 'react-syntax-highlighter';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+// import { sunburst } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { Box } from '@chakra-ui/layout';
 
 const CodeBlock: CodeComponent = ({ inline, className, children }) => {
   if (inline) {
     return <code className={className}>{children}</code>;
   }
-  const match = /language-(\w+)(:.+)/.exec(className || '');
-  const lang = match && match[1] ? match[1] : '';
-  const name = match && match[2] ? match[2].slice(1) : '';
+
+  const langMatch = /language-(\w+)/.exec(className || '');
+  const nameMatch = /language-(\w+)(:.+)/.exec(className || '');
+  const lang = langMatch && langMatch[1] ? langMatch[1] : '';
+  const name = nameMatch && nameMatch[2] ? nameMatch[2].slice(1) : '';
 
   return (
     <>
@@ -20,7 +24,7 @@ const CodeBlock: CodeComponent = ({ inline, className, children }) => {
           </Box>
 
           <SyntaxHighlighter
-            style={sunburst}
+            style={tomorrow}
             language={lang}
             lineProps={{ style: { whiteSpace: 'pre-wrap' } }}
             wrapLines={true}
@@ -30,7 +34,7 @@ const CodeBlock: CodeComponent = ({ inline, className, children }) => {
         </Box>
       ) : (
         <SyntaxHighlighter
-          style={sunburst}
+          style={tomorrow}
           language={lang}
           lineProps={{ style: { whiteSpace: 'pre-wrap' } }}
           wrapLines={true}
