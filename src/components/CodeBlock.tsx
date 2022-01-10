@@ -15,31 +15,20 @@ const CodeBlock: CodeComponent = ({ inline, className, children }) => {
 
   return (
     <>
-      {name ? (
-        <Box position='relative' zIndex='-10'>
-          <Box display='inline-block' position='absolute' bg='gray.100'>
-            {name}
-          </Box>
-
-          <SyntaxHighlighter
-            style={tomorrow}
-            language={lang}
-            lineProps={{ style: { whiteSpace: 'pre-wrap' } }}
-            wrapLines={true}
-          >
-            {'\n' + String(children).replace(/\n$/, '')}
-          </SyntaxHighlighter>
+      <Box position='relative' zIndex='-10'>
+        <Box display='inline-block' position='absolute' bg='gray.100'>
+          {name}
         </Box>
-      ) : (
+
         <SyntaxHighlighter
           style={tomorrow}
           language={lang}
           lineProps={{ style: { whiteSpace: 'pre-wrap' } }}
           wrapLines={true}
         >
-          {String(children).replace(/\n$/, '')}
+          {name ? '\n' + String(children).replace(/\n$/, '') : String(children).replace(/\n$/, '')}
         </SyntaxHighlighter>
-      )}
+      </Box>
     </>
   );
 };
