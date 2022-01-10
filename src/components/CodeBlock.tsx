@@ -1,8 +1,6 @@
 import { CodeComponent } from 'react-markdown/lib/ast-to-react';
-// import SyntaxHighlighter from 'react-syntax-highlighter';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-// import { sunburst } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { Box } from '@chakra-ui/layout';
 
 const CodeBlock: CodeComponent = ({ inline, className, children }) => {
