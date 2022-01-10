@@ -26,7 +26,9 @@ const CodeBlock: CodeComponent = ({ inline, className, children }) => {
           lineProps={{ style: { whiteSpace: 'pre-wrap' } }}
           wrapLines={true}
         >
-          {name ? '\n' + String(children).replace(/\n$/, '') : String(children).replace(/\n$/, '')}
+          {name
+            ? '\n' + children.toString().replace(/\n$/, '')
+            : children.toString().replace(/\n$/, '')}
         </SyntaxHighlighter>
       </Box>
     </>
