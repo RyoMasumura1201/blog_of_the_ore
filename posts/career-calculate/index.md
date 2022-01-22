@@ -23,7 +23,7 @@ const yesterday = now.subtract(1, 'day');
 const tomorrow = now.add(1, 'day');
 ```
 
-配列 useState の扱い方で少しつまづいた。配列 useState を setState する場合、`push()`などは使わす、以下のようにスプレッド構文を用いて更新しなければならない。
+配列 useState の扱い方で少しつまづいた。配列 useState を setState する場合、`push()`などは使わす、以下のようにスプレッド構文を用いて更新しなければならない。useState は`Object.is()`で値の更新を判定するので、push だと更新を認識しないらしい。(`Object.is()`はオブジェクトを参照で比較するため)
 
 ```ts
 const [hogeList, setHogeList] = useState<Type[]>([]);
