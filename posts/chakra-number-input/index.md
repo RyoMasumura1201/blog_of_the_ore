@@ -77,3 +77,9 @@ const handleChangeYear = (str: string, num: number) => {
 
 これにより useState で管理している配列を更新することができました。  
 ちなみに[event を返してくれという issue](https://github.com/chakra-ui/chakra-ui/issues/617)が立っていましたが、変更予定はなさそうです。
+
+## 追記
+
+この方法だと NumberInput から別の NumberInput に直接 focus を移動した時値が適切に変更されませんでした、、、  
+onChange は onBlur 時も発動するので適切な activeElement が取得できないようです。  
+いい方法あったら教えてください、、、(一旦 NumberInput やめて Input に変更して対処しました)
