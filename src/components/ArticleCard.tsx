@@ -20,14 +20,16 @@ const ArticleCard: VFC<postDataType> = (props) => {
       boxShadow='md'
     >
       <Stack textAlign='center'>
-        <Image
-          src={require(`../../posts/${id}/${image}`)}
-          width='160px'
-          height='160px'
-          alt='thumbnail'
-          objectFit='contain'
-          className='articleCardImage'
-        />
+        <Box w='160px' margin='0 auto'>
+          <Image
+            src={require(`../../posts/${id}/${image}`)}
+            width='160px'
+            height='160px'
+            alt='thumbnail'
+            objectFit='cover'
+            className='articleCardImage'
+          />
+        </Box>
         <Text fontSize='lg' fontWeight='bold'>
           {title}
         </Text>
