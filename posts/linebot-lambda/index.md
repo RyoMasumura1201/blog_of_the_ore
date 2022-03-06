@@ -128,6 +128,8 @@ exports.handler = async (event) => {
 
 ## Lambda 作成
 
+### コードのアップロード
+
 先ほど設定した API を叩くコードを定期実行する Lambda を作成する。  
 AWS コンソールにログインし、Lambda から関数の作成をクリック。  
 一から作成を選択し、関数名を入力し作成。(今回は Nodejs で書きます。アクセス権限はデフォルトで OK)
@@ -138,6 +140,13 @@ AWS コンソールにログインし、Lambda から関数の作成をクリッ
 zip ファイルを選択し、先ほど作成した zip ファイルをアップロード。
 
 ![picture 11](20220305-index-pic_1646453992300.png)
+
+### 環境変数設定
+
+Line developers で設定した秘密鍵、アクセストークンを環境変数として設定する。  
+また、Lambda はデフォルトではタイムゾーンが UTC になっているので環境変数 TZ で Asia/Tokyo を設定。(Lambda の OS は Amazon Linux2 なので Linux と同じく環境変数でタイムゾーンを設定できる)
+
+![picture 1](20220306-index-pic_1646528545119.png)
 
 ## Lambda を定期実行させる
 
