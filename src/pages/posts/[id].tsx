@@ -33,6 +33,8 @@ export default function Post(props: Props) {
             src={require(`../../../posts/${postData.id}/${image.properties.src}`)}
             alt={image.properties.alt}
             objectFit='contain'
+            mt='10'
+            mb='10'
           />
         </picture>
       );
