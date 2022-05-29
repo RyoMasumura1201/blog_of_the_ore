@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScaleをさわってみた(Next.js × Prisma)'
 date: '2022-05-29'
-image: '806be441-planetscale.png'
+image: 'planet.png'
 ---
 
 個人開発の DB には
@@ -10,7 +10,7 @@ image: '806be441-planetscale.png'
 - RDB を扱える
 - 簡単にデプロイできる
 
-という点から Heroku を使っていたのだが、この前あった Heroku のデータ流出の件があってから何となく Heroku を使うのが怖くなってしまい、  
+という点から Heroku を使っていたのだが、この前あった Heroku のデータ流出の件があってから別のサービスも試してみようかなと思い、  
 移行先候補として catnose さんが少し前に挙げていた PlanetScale を使ってみることにした
 
 ## PlanetScale とは？
@@ -141,5 +141,5 @@ Connect with Prisma を選択することで確認できる
 
 ## 最後に
 
-開発環境と本番環境をブランチで管理できるのはとても便利だと感じた。
+開発環境と本番環境をブランチで管理できるのはとても便利だと感じた。  
 ちなみに無料で使えるデータベースは一組織につき一つまでです。
