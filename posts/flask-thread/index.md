@@ -20,7 +20,7 @@ image: 'flask-icon.png'
 - メジャーなようで、用意されている機能も多い
 - メッセージブローカ(メッセージを格納)、データストア(処理結果等を格納)として様々な DB を選択することができる(Redis, RabbitMQ, PostgreSQL 等)
 - ドキュメントが手厚い印象
-- WIndows は Version4 からサポートしていない
+- Windows は Version4 からサポートしていない
 
 ## [RQ](https://python-rq.org/)
 
