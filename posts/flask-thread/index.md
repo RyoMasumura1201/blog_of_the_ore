@@ -162,3 +162,7 @@ class QueueItem:
 # 参考記事
 
 - https://qiita.com/juri-t/items/5cec3822e168215aff49
+
+# ソースコード
+
+https://github.com/RyoMasumura1201/flask-thread
