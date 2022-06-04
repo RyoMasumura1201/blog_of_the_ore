@@ -155,3 +155,7 @@ class QueueItem:
 
 基本的に事情がなければ Celery とか使った方がいいと思います
 あと[Fast API](https://fastapi.tiangolo.com/ja/)とか[Quart](https://gitlab.com/pgjones/quart)といった ASGI フレームワークなら標準機能でバックグラウンド処理が用意されています(そこまで機能が多いわけではなさそうですが、、)
+
+# 参考記事
+
+- https://qiita.com/juri-t/items/5cec3822e168215aff49
