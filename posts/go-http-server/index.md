@@ -282,9 +282,9 @@ func getMimeMap() map[string]string {
 
 ## 最後に
 
-対応すべき点をあげ出したらキリがないが、Get リクエストに対してレスポンスを返すサーバができた。
-[この方の Zenn](https://zenn.dev/hsaki)がめちゃめちゃ参考になりました
-net/http 読んで疑問になったことを色々解説してくださっててありがたかった、、、
+対応すべき点をあげ出したらキリがないが、Get リクエストに対してレスポンスを返すサーバができた。  
+[この方の Zenn](https://zenn.dev/hsaki)がめちゃめちゃ参考になりました  
+net/http 読んで疑問になったことを色々解説してくださっててありがたかった、、、  
 実装自体は[こちら](https://zenn.dev/bigen1925/books/introduction-to-web-application-with-python)を参考にさせていただきました
 
 今回 net/http 読んでみましたがまだ把握できていない箇所が多いので何回かトライしてみようと思います  
