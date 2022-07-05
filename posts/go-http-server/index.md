@@ -35,17 +35,13 @@ func main() {
 ## 書いたもの
 
 [こちら](https://github.com/RyoMasumura1201/webserver-of-the-ryo)がリポジトリになります。
-とりあえず HTML ファイル, CSS ファイル, 画像ファイルでレスポンスを返すようにはなった
+とりあえず HTML ファイル, CSS ファイル, 画像ファイルでレスポンスを返すようにはなりました
 
 ![picture 1](20220706-index-pic_1657061758712.png)
 
 ### リクエストを受け取る
 
-````go
-```net.Listen()```でtcp接続を待ち受けるようになります。
-無限ループ内でリクエストがくると```ln.Accept()```により```net.Conn```インターフェースを作成し、
-```handleReqeust()```によりレスポンスを並列で返していく
-
+```go
 func main() {
 	fmt.Println("server start🚀")
 	ln, err := net.Listen("tcp", ":8080")
@@ -65,8 +61,11 @@ func main() {
 
 	}
 }
+```
 
-````
+まず、`net.Listen()`で tcp 接続を待ち受けるようになります。
+無限ループ内でリクエストがくると`ln.Accept()`により`net.Conn`インターフェースを作成し、
+`handleReqeust()`によりレスポンスを並列で返していきます
 
 ### リクエストを読み込む
 
@@ -128,7 +127,7 @@ Accept-Encoding: gzip, deflate, br
 Accept-Language: ja,en-US;q=0.9,en;q=0.8
 ```
 
-リクエストの一行目にあるリクエストラインからリクエストパスを取り出し、レスポンス作成関数に返す
+リクエストの一行目にあるリクエストラインからリクエストパスを取り出し、レスポンス作成関数に渡します
 
 ```go
 requestElementList := splitRequest(request)
@@ -283,10 +282,10 @@ func getMimeMap() map[string]string {
 
 ## 最後に
 
-対応すべき点をあげ出したらキリがないが、Get リクエストに対してレスポンスを返すサーバができた。  
+対応すべき点をあげ出したらキリがないが、Get リクエストに対してレスポンスを返すサーバができた。
 [この方の Zenn](https://zenn.dev/hsaki)がめちゃめちゃ参考になりました
 net/http 読んで疑問になったことを色々解説してくださっててありがたかった、、、
-実装自体はこちらを参考にさせていただきました
+実装自体は[こちら](https://zenn.dev/bigen1925/books/introduction-to-web-application-with-python)を参考にさせていただきました
 
-net/http 読んでみましたがまだ把握できていない箇所が多いので何回かトライしてみようと思います
+今回 net/http 読んでみましたがまだ把握できていない箇所が多いので何回かトライしてみようと思います  
 あと次は WebSocket も理解していきたい
