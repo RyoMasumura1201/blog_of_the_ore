@@ -1,8 +1,9 @@
 import { Box, Center } from '@chakra-ui/layout';
 import { Text } from '@chakra-ui/react';
 import { FaGithub } from 'react-icons/fa';
+import { memo } from 'react';
 
-export const Footer: React.VFC = () => {
+const Footer: React.VFC = () => {
   return (
     <footer>
       <Box bg='black' width='100%' p='2' textAlign='center'>
@@ -20,3 +21,5 @@ export const Footer: React.VFC = () => {
     </footer>
   );
 };
+
+export default memo(Footer);

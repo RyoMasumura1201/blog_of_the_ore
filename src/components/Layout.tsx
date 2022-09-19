@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { VFC } from 'react';
 import { Header } from './Header';
-import { Footer } from './Footer';
+import Footer from './Footer';
 
 export const siteTitle = 'blog_of_the_ryo';
 
