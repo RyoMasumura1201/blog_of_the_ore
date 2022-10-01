@@ -2,6 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { postDataType } from 'type';
+import { unified } from 'unified';
+import parser from 'remark-parse';
+import toHast from 'remark-rehype';
+import compiler from 'rehype-stringify';
 
 const postsDirectory: string = path.join(process.cwd(), 'posts');
 
@@ -48,9 +52,13 @@ export const getPostData = async (id: string) => {
 
   const matterResult: matter.GrayMatterFile<string> = matter(fileContents);
 
+  const processor = unified().use(parser).use(toHast).use(compiler);
+
+  const html = await processor.process(matterResult.content);
+
   return {
     id,
-    content: matterResult.content,
+    html: html.toString(),
     ...(matterResult.data as { date: string; title: string; image: string }),
   };
 };

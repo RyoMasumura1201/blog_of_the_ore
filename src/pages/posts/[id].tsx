@@ -2,44 +2,22 @@ import { Layout } from '../../components/Layout';
 import { getAllPostIds, getPostData } from 'lib/posts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Date from '../../components/Date';
-import ReactMarkdown from 'react-markdown';
-import gfm from 'remark-gfm';
 import markdownStyles from '../../../styles/markdown.module.css';
-import { Text, Image } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/layout';
-import CodeBlock from '../../components/CodeBlock';
-import { ReactNode } from 'react';
 import { postDataType } from 'type';
 import { SEO } from '@/components/SEO';
 
 interface postPage extends postDataType {
-  content: string;
+  html: string;
 }
 
 type Props = {
   postData: postPage;
 };
+
 export default function Post(props: Props) {
   const { postData } = props;
-
-  const Img = ({ node, children }: { node: JSX.IntrinsicElements['p']; children: ReactNode[] }) => {
-    if (node.children[0].tagName === 'img') {
-      const image = node.children[0];
-
-      return (
-        <picture>
-          <Image
-            src={require(`../../../posts/${postData.id}/${image.properties.src}`)}
-            alt={image.properties.alt}
-            objectFit='contain'
-            mt='10'
-            mb='10'
-          />
-        </picture>
-      );
-    }
-    return <p>{children}</p>;
-  };
 
   return (
     <Layout>
@@ -62,9 +40,7 @@ export default function Post(props: Props) {
           paddingRight={{ base: '10', md: '40' }}
           className={markdownStyles.markdownBody}
         >
-          <ReactMarkdown remarkPlugins={[gfm]} components={{ code: CodeBlock, p: Img }}>
-            {postData.content}
-          </ReactMarkdown>
+          <div dangerouslySetInnerHTML={{ __html: postData.html }} />
         </Box>
       </article>
     </Layout>
