@@ -6,6 +6,7 @@ import { Text } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/layout';
 import { postDataType } from 'type';
 import { SEO } from '@/components/SEO';
+import markdownStyles from '../../../styles/markdown.module.css';
 
 interface postPage extends postDataType {
   html: string;
@@ -35,7 +36,10 @@ export default function Post(props: Props) {
           <Date dateString={postData.date} />
         </Box>
         <Box paddingLeft={{ base: '10', md: '40' }} paddingRight={{ base: '10', md: '40' }}>
-          <div dangerouslySetInnerHTML={{ __html: postData.html }} />
+          <div
+            className={markdownStyles.body}
+            dangerouslySetInnerHTML={{ __html: postData.html }}
+          />
         </Box>
       </article>
     </Layout>
