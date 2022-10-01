@@ -2,7 +2,6 @@ import { Layout } from '../../components/Layout';
 import { getAllPostIds, getPostData } from 'lib/posts';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Date from '../../components/Date';
-import markdownStyles from '../../../styles/markdown.module.css';
 import { Text } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/layout';
 import { postDataType } from 'type';
@@ -35,11 +34,7 @@ export default function Post(props: Props) {
         <Box textAlign='center' marginBottom='10' color='gray.500'>
           <Date dateString={postData.date} />
         </Box>
-        <Box
-          paddingLeft={{ base: '10', md: '40' }}
-          paddingRight={{ base: '10', md: '40' }}
-          className={markdownStyles.markdownBody}
-        >
+        <Box paddingLeft={{ base: '10', md: '40' }} paddingRight={{ base: '10', md: '40' }}>
           <div dangerouslySetInnerHTML={{ __html: postData.html }} />
         </Box>
       </article>
