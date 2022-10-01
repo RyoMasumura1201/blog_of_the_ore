@@ -1,9 +1,8 @@
-import { CodeComponent } from 'react-markdown/lib/ast-to-react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { Box } from '@chakra-ui/layout';
 
-const CodeBlock: CodeComponent = ({ inline, className, children }) => {
+const CodeBlock = ({ inline, className, children }) => {
   if (inline) {
     return <code className={className}>{children}</code>;
   }
