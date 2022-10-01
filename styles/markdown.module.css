@@ -62,3 +62,7 @@
 .body img {
   width: 100%;
 }
+
+.body a {
+  color: #3366ff;
+}
