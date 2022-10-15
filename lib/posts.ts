@@ -4,8 +4,11 @@ import matter from 'gray-matter';
 import { postDataType } from 'type';
 import { unified } from 'unified';
 import parser from 'remark-parse';
-import toHast from 'remark-rehype';
+import remarkRehype from 'remark-rehype';
 import compiler from 'rehype-stringify';
+import rehypePrism from 'rehype-prism-plus';
+import { plugin, fileNamehandler, codeBlockHandler } from './transformer';
+import type { Options as RemarkRehypeOptions } from 'remark-rehype';
 
 const postsDirectory: string = path.join(process.cwd(), 'posts');
 
@@ -52,7 +55,17 @@ export const getPostData = async (id: string) => {
 
   const matterResult: matter.GrayMatterFile<string> = matter(fileContents);
 
-  const processor = unified().use(parser).use(toHast).use(compiler);
+  const processor = unified()
+    .use(parser)
+    .use(plugin)
+    .use(remarkRehype, {
+      handlers: {
+        fileName: fileNamehandler,
+        codeBlock: codeBlockHandler,
+      },
+    } as RemarkRehypeOptions)
+    .use(rehypePrism)
+    .use(compiler);
 
   const html = await processor.process(matterResult.content);
 
