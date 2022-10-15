@@ -36,7 +36,7 @@
     "rehype-stringify": "^9.0.3",
     "remark": "^14.0.1",
     "remark-parse": "^10.0.0",
-    "remark-rehype": "^10.1.0",
+    "remark-rehype": "10.1.0",
     "unified": "^10.1.0",
     "unist-util-inspect": "^7.0.1"
   },
