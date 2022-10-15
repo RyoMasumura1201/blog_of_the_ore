@@ -28,18 +28,22 @@ const visitor = (node: Code, index: number, parent: Parent | undefined) => {
     node.lang = 'sh';
     return;
   }
+
   const langAndName = node.lang.split(':');
-  const lang = langAndName[0];
-  node.lang = lang;
-  const name = langAndName.length > 1 ? langAndName[1] : undefined;
-  const fileName = { type: 'fileName', value: name };
-  const codeBlock = name
-    ? { type: 'codeBlock', children: [fileName, node] }
-    : { type: 'codeBlock', children: [node] };
-  if (name) {
-    node.value = '\n' + node.value;
+
+  if (langAndName.length < 2) {
+    const codeBlock = { type: 'codeBlock', children: [node] };
+    parent.children.splice(index, 1, codeBlock);
+    return;
   }
 
+  const lang = langAndName[0];
+  const fileName = langAndName[1];
+
+  node.lang = lang;
+  node.value = '\n' + node.value;
+  const fileNameNode = { type: 'fileName', value: fileName };
+  const codeBlock = { type: 'codeBlock', children: [fileNameNode, node] };
   parent.children.splice(index, 1, codeBlock);
 };
 
