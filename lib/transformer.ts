@@ -24,6 +24,10 @@ function isNode(node: unknown): node is Node {
 }
 
 const visitor = (node: Code, index: number, parent: Parent | undefined) => {
+  if (!node.lang) {
+    node.lang = 'sh';
+    return;
+  }
   const langAndName = node.lang.split(':');
   const lang = langAndName[0];
   node.lang = lang;
