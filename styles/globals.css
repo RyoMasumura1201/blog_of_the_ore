@@ -49,3 +49,13 @@ img {
   margin: 0 auto;
   border-radius: 50%;
 }
+
+.fileName {
+  background-color: #edf2f7;
+  position: absolute;
+  padding: 3px;
+}
+
+.parentCodeBlock {
+  position: relative;
+}

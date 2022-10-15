@@ -7,6 +7,7 @@ import { Box } from '@chakra-ui/layout';
 import { postDataType } from 'type';
 import { SEO } from '@/components/SEO';
 import markdownStyles from '../../../styles/markdown.module.css';
+import 'prismjs/themes/prism-tomorrow.css';
 
 interface postPage extends postDataType {
   html: string;
