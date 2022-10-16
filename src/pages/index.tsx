@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import { siteTitle, Layout } from '../components/Layout';
+import { Layout } from '../components/Layout';
 import { getSortedPostsData } from 'lib/posts';
 import { GetStaticProps } from 'next';
 import { Wrap, WrapItem } from '@chakra-ui/layout';
