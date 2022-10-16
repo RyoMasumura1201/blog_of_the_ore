@@ -43,7 +43,7 @@
 }
 .body ul li {
   margin: 12px 0px;
-  list-style: square;
+  list-style: inside;
 }
 .body ul li ul {
   margin-left: 12px;
