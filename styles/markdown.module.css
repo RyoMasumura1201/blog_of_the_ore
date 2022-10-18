@@ -41,6 +41,10 @@
 .body ul {
   padding-left: 18px;
 }
+
+.body ol {
+  padding-left: 18px;
+}
 .body ul li {
   margin: 12px 0px;
   list-style: inside;
