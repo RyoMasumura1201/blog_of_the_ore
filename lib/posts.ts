@@ -7,7 +7,7 @@ import parser from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import compiler from 'rehype-stringify';
 import rehypePrism from 'rehype-prism-plus';
-import { plugin, fileNamehandler, codeBlockHandler } from './transformer';
+import { plugin, fileNamehandler, parentCodeBlockHandler } from './transformer';
 import type { Options as RemarkRehypeOptions } from 'remark-rehype';
 
 const postsDirectory: string = path.join(process.cwd(), 'posts');
@@ -61,7 +61,7 @@ export const getPostData = async (id: string) => {
     .use(remarkRehype, {
       handlers: {
         fileName: fileNamehandler,
-        codeBlock: codeBlockHandler,
+        parentCodeBlock: parentCodeBlockHandler,
       },
     } as RemarkRehypeOptions)
     .use(rehypePrism)

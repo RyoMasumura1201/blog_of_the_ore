@@ -58,7 +58,7 @@ export const fileNamehandler = (_h: H, node) => {
   };
 };
 
-export const codeBlockHandler = (h: H, node: MdastNode) => {
+export const parentCodeBlockHandler = (h: H, node: MdastNode) => {
   return {
     type: 'element',
     tagName: 'div',
