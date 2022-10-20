@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/layout';
 import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react';
-import { SearchIcon } from '@chakra-ui/icons';
+import { BiSearch } from 'react-icons/bi';
 import { memo } from 'react';
 import { connectSearchBox } from 'react-instantsearch-dom';
 
@@ -19,7 +19,7 @@ const SearchBox: React.VFC<Props> = (props) => {
           onChange={(e) => refine(e.currentTarget.value)}
         />
         <InputLeftElement>
-          <SearchIcon color='gray.700' />
+          <BiSearch color='gray' />
         </InputLeftElement>
       </InputGroup>
     </Box>
