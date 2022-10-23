@@ -9,7 +9,8 @@ import rehypeReact from 'rehype-react';
 import type { Options as RehypeReactOptions } from 'rehype-react';
 import 'prismjs/themes/prism-tomorrow.css';
 
-import { getAllPostIds, getPostData } from 'lib/posts';
+import { getAllPostIds } from 'lib/posts';
+import { getPost } from 'lib/post';
 import { Layout } from '../../components/Layout';
 import Date from '../../components/Date';
 import { postDataType } from 'type';
@@ -98,7 +99,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const postData = await getPostData(params.id as string);
+  const postData = await getPost(params.id as string);
   return {
     props: {
       postData,

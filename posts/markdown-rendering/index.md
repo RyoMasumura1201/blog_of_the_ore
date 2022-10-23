@@ -1,7 +1,7 @@
 ---
 title: 'markdownレンダリングをunifiedで行うようにした'
-date: '2022-10-21'
-image: 'unifiedIcon.png'
+date: '2022-10-23'
+image: 'uni_murasaki_close.png'
 ---
 
 # やったこと
