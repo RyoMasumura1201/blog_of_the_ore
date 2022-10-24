@@ -97,6 +97,8 @@ Lambda 関数は先ほど作成した関数を指定。作成をクリック。
 aws iot set-default-authorizer --authorizer-name <authorizer_name>
 ```
 
+デフォルトに設定しなくても、リクエスト時 username フィールドの後ろに`username?x-amz-customauthorizer-name=authorizer-name`の形でオーソライザーを指定できる。
+
 ## オーソライザーが Lambda を呼び出せるように Lambda にポリシーを設定
 
 ```
@@ -143,7 +145,8 @@ except Exception as e:
   print(e)
 ```
 
-これにより Cognito ユーザの認証情報を用いて IoT Core に MQTT メッセージを送ることができる。
+これにより Cognito ユーザの認証情報を用いて IoT Core に MQTT メッセージを送ることができる。  
+ちゃんと運用するならフェデレーティッド ID を扱うことになると思うが、動かしたいだけならこちらの方が楽に設定できる印象
 
 # 参考記事
 
