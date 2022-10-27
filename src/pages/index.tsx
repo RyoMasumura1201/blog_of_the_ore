@@ -22,6 +22,7 @@ export default function Home({ allPostsData }: { allPostsData: postDataType[] })
       <SEO
         title='blog of the ryo'
         image={`https://blog-of-the-ore.vercel.app` + require(`../../public/images/profile.jpeg`)}
+        description='blog of the ryo'
       />
       <Search />
       <Wrap justify='center' spacing='30px' mt='4'>
