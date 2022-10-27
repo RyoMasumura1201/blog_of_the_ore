@@ -19,6 +19,7 @@ import markdownStyles from '../../../styles/markdown.module.css';
 
 interface postPage extends postDataType {
   html: string;
+  description: string;
 }
 
 type Props = {
@@ -74,6 +75,7 @@ export default function Post(props: Props) {
           'https://blog-of-the-ore.vercel.app' +
           require(`../../../posts/${postData.id}/${postData.image}`)
         }
+        description={postData.description}
       />
       <article>
         <Text textAlign='center' fontSize='x-large' fontWeight='bold'>

@@ -3,9 +3,10 @@ import Head from 'next/head';
 type Props = {
   title: string;
   image: string;
+  description: string;
 };
 export const SEO: React.VFC<Props> = (props) => {
-  const { title, image } = props;
+  const { title, image, description } = props;
   return (
     <Head>
       <link
@@ -19,8 +20,8 @@ export const SEO: React.VFC<Props> = (props) => {
       />
       <title>{title}</title>
       <meta name='og:title' content={title} />
-      <meta name='description' content='blog of the ryo' />
-      <meta property='og:description' content='blog of the ryo' />
+      <meta name='description' content={description} />
+      <meta property='og:description' content={description} />
       <meta property='og:image' content={image} />
       <meta name='twitter:card' content='summary_large_image' />
     </Head>
