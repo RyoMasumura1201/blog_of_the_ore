@@ -13,8 +13,8 @@ import { getAllPostIds } from 'lib/posts';
 import { getPost } from 'lib/post';
 import { Layout } from '../../components/Layout';
 import Date from '../../components/Date';
-import { postDataType } from 'type';
 import { SEO } from '@/components/SEO';
+import { postDataType } from 'type';
 import markdownStyles from '../../../styles/markdown.module.css';
 
 interface postPage extends postDataType {
