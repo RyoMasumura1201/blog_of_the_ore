@@ -8,7 +8,7 @@ image: 'thumb.png'
 
 VPC リンクを通して APIGW(HTTP API)からプライベートサブネットに位置する ALB にアクセスできるようにする
 
-![picture](vpclink.png)
+![picture 2](20221230-index-vpclink.png)
 
 # 構築
 
