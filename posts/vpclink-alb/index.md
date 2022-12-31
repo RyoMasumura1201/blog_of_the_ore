@@ -174,9 +174,8 @@ APIRoute:
 
 ## 少しはまったところ
 
-APIGW を通して ALB に来るリクエストパスは、APIGW に来たリクエストパスと一致します。
-つまり、APIGW でステージ名(今回は dev)を設定している場合、APIGW に送るリクエスト url は`https://{apigwのurl}/dev/hello`となりますが、この時 ALB に来るリクエストパスは`/hello`ではなく`/dev/hello`となります。
-
+APIGW を通して ALB に来るリクエストパスは、APIGW に来たリクエストパスと一致します。  
+つまり、APIGW でステージ名(今回は dev)を設定している場合、APIGW に送るリクエスト url は`https://{apigwのurl}/dev/hello`となりますが、この時 ALB に来るリクエストパスは`/hello`ではなく`/dev/hello`となります。  
 ALB に到達するリクエストパスを/hello としたい場合、統合の設定でリクエストパスを以下のように上書きする必要があります。
 
 ```yaml
