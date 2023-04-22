@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { unified } from 'unified';
 import parser from 'remark-parse';
+import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import compiler from 'rehype-stringify';
 import rehypePrism from 'rehype-prism-plus';
@@ -21,6 +22,7 @@ export const getPost = async (id: string) => {
 
   const processor = unified()
     .use(parser)
+    .use(remarkGfm)
     .use(plugin)
     .use(remarkRehype, {
       handlers: {
