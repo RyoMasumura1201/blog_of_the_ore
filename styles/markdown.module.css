@@ -70,3 +70,26 @@
 .body a {
   color: #3366ff;
 }
+
+.body table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  overflow: auto;
+  margin-bottom: 16px;
+}
+
+.body th,
+.body td {
+  padding: 6px 13px;
+  border: 1px solid #dfe2e5;
+}
+
+.body th {
+  font-weight: 600;
+  background-color: #f6f8fa;
+}
+
+.body tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
