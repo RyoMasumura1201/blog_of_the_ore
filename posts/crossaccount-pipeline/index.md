@@ -6,7 +6,8 @@ image: 'thumb.png'
 
 ## やること
 
-アカウント A に存在する CodePipeline からアカウント B に存在する CodeDeploy を実行し、ECS をデプロイする。
+アカウント A に存在する CodePipeline からアカウント B に存在する CodeDeploy を実行し、ECS をデプロイする。  
+権限周りで躓いたのでメモ
 
 ![AWS構成図](crossaccount.png)
 
